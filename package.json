@@ -89,6 +89,11 @@
     "prettier-standard": "7.0.3",
     "semantic-release": "8.2.0",
     "simple-commit-message": "3.3.2",
+    "snap-shot-it": "4.0.1",
     "standard": "10.0.3"
+  },
+  "dependencies": {
+    "check-more-types": "2.24.0",
+    "lazy-ass": "1.6.0"
   }
 }
