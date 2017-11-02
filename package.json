@@ -11,11 +11,11 @@
         "npm prune",
         "npm run deps",
         "npm test",
-        "git add src/*.js",
+        "git add src/*.js bin/*.js",
         "npm run ban"
       ],
       "pre-push": [
-        "npm run unused-deps",
+        "npm run unused:deps",
         "npm run secure",
         "npm run license",
         "npm run ban -- --all",
@@ -28,7 +28,11 @@
   "engines": {
     "node": ">=6"
   },
+  "bin": {
+    "colon-names": "bin/colon-names.js"
+  },
   "files": [
+    "bin/*.js",
     "src/*.js",
     "!src/*-spec.js"
   ],
@@ -56,16 +60,17 @@
     "deps": "deps-ok && dependency-check --no-dev .",
     "issues": "git-issues",
     "license": "license-checker --production --onlyunknown --csv",
-    "lint": "standard --verbose --fix src/*.js",
+    "lint": "standard --verbose --fix src/*.js bin/*.js",
     "prelint": "npm run pretty",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard 'src/*.js'",
+    "pretty": "prettier-standard 'src/*.js' 'bin/*.js'",
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "npm run unit",
     "unit": "mocha src/*-spec.js",
-    "unused-deps": "dependency-check --unused --no-dev .",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "unused:deps": "dependency-check --unused --no-dev .",
+    "semantic:release": "semantic-release pre && npm publish && semantic-release post",
+    "demo": "node bin/colon-names.js"
   },
   "release": {
     "analyzeCommits": "simple-commit-message",

@@ -8,15 +8,30 @@
 [![semantic-release][semantic-image] ][semantic-url]
 [![js-standard-style][standard-image]][standard-url]
 
+This ensures consistency in script names. Separators like `-` or `_` or camel-cased names
+are disallowed.
+
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 6 or above.
 
 ```sh
-npm install --save colon-names
+npm install --save-dev colon-names
 ```
 
 ## Use
+
+From command line
+
+```
+$(npm bin)/colon-names
+```
+
+If any of the script names in `package.json` use non-colon separator like `test-ci`,
+will print an error message and exit with 1.
+
+Tip: check on pre-commit or pre-push using [pre-git](https://github.com/bahmutov/pre-git)
+or [husky](https://github.com/typicode/husky)
 
 ### Small print
 

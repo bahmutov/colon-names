@@ -31,3 +31,7 @@ exports['isColonSeparated checks for dashes and underscores isColonSeparated 1']
     }
   ]
 }
+
+exports['verifyColonSeparated throws on dashes 1'] = `
+test-foo is using a separator other than ":"
+`

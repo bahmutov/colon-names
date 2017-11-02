@@ -12,4 +12,14 @@ function isColonSeparated (s) {
   return !hasDashes(s) && !hasUnderscores(s) && !hasCapitalLetters(s)
 }
 
-module.exports = { isColonSeparated }
+// throws if any of the given strings has other separators
+function verifyColonSeparated (strings) {
+  la(is.strings(strings), 'invalid strings', strings)
+  strings.forEach(s => {
+    if (!isColonSeparated(s)) {
+      throw new Error(s + ' is using a separator other than ":"')
+    }
+  })
+}
+
+module.exports = { isColonSeparated, verifyColonSeparated }
