@@ -10,6 +10,7 @@
       "pre-commit": [
         "npm prune",
         "npm run deps",
+        "npm run check:colons",
         "npm test",
         "git add src/*.js bin/*.js",
         "npm run ban"
@@ -70,7 +71,8 @@
     "unit": "mocha src/*-spec.js",
     "unused:deps": "dependency-check --unused --no-dev .",
     "semantic:release": "semantic-release pre && npm publish && semantic-release post",
-    "demo": "node bin/colon-names.js"
+    "demo": "node bin/colon-names.js",
+    "check:colons": "node bin/colon-names.js"
   },
   "release": {
     "analyzeCommits": "simple-commit-message",
